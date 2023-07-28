@@ -1,11 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import PopView from '../views/PopView.vue'
+import RockView from '../views/RockView.vue'
+import RapView from '../views/RapView.vue'
+import NotFound from '../components/NotFoundComponent.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'rock',
+    component: RockView
+  },
+  {
+    path: '/pop',
+    name: 'pop',
+    component: PopView
+  },
+  {
+    path: '/rap',
+    name: 'Rap',
+    component: RapView
   },
   {
     path: '/about',
@@ -16,6 +29,11 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'notfound',
+    component: NotFound
   }
 ]
 
